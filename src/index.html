@@ -11,7 +11,7 @@
 <body>
 
 <div id="app-main">
-	<navbar></navbar>
+	<navbar :items="links" @item-click="onClick($event)"></navbar>
 	<div class="centered">{{instance}}</div>
 	<div class="img-wrapper">
 		<img class="vue-img" src="assets/img/logo.png">

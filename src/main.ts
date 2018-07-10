@@ -6,8 +6,19 @@ import {Navbar} from './components/navbar/navbar';
 new Vue({
     el: '#app-main',
     data: {
-        instance: 'Using The Vue Instance'
+        instance: 'Using The Vue Instance',
+        links: [
+            'oh',
+            'my',
+            'god'
+        ]
     },
+    methods: {
+        onClick(item) {
+            alert('parent recognized item click: ' + item);
+        }
+    },
+
     components: {
         Navbar
     }

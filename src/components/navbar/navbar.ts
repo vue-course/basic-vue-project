@@ -1,28 +1,30 @@
 import Vue from 'vue';
+import Component from 'vue-class-component';
 
 import './navbar.css';
+import {Prop} from 'vue-property-decorator';
 
-export const Navbar = Vue.extend({
-    name: 'navbar',
+@Component({
     template: `<ul class="navbar">
-            <li v-for="item in items" 
+            <li v-for="item in links" 
             @click="onClick(item)"
             class="nav-item"
             :class="{'active': selectedItem === item}">{{item}}</li>
         </ul>`,
-    data() {
-        return {
-            selectedItem: null,
-            items: [
-                'avi',
-                'moshe',
-                'jacob'
-            ]
-        };
-    },
-    methods: {
-        onClick(item) {
-            this.selectedItem = item;
-        }
+})
+export class Navbar extends Vue {
+    selectedItem: string = null;
+
+    @Prop() items: Array<string>;
+
+    defaultItems = ['avi', 'moshe', 'jacob'];
+
+    get links() {
+        return this.items || this.defaultItems;
     }
-});
+
+    onClick(item) {
+        this.selectedItem = item;
+        this.$emit('item-click', item);
+    }
+}
