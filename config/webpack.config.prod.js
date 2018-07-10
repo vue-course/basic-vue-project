@@ -27,19 +27,19 @@ webpackConfig.module.rules = [...webpackConfig.module.rules,
           importLoaders: 2
         }
       },
-      {
-        loader: 'postcss-loader',
-        options: {
-          plugins: () => [autoprefixer],
-          sourceMap: false
+        {
+          loader: 'postcss-loader',
+          options: {
+            plugins: () => [autoprefixer],
+            sourceMap: false
+          }
+        },
+        {
+          loader: 'sass-loader',
+          options: {
+            sourceMap: false
+          }
         }
-      },
-      {
-        loader: 'sass-loader',
-        options: {
-          sourceMap: false
-        }
-      }
       ],
       // use style-loader in development
       fallback: 'style-loader'
@@ -88,7 +88,7 @@ webpackConfig.plugins = [...webpackConfig.plugins,
     cssProcessor: require('cssnano'),
     cssProcessorOptions: {
       discardUnused: false,
-      discardComments: { removeAll: true }
+      discardComments: {removeAll: true}
     },
     canPrint: true
   }),

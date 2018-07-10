@@ -1,0 +1,11 @@
+.navbar {
+    list-style: none;
+}
+
+.nav-item {
+    cursor: pointer;
+}
+
+.active {
+    font-weight: bold;
+}
